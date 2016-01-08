@@ -2,6 +2,7 @@ CHANGELOG for Sulu
 ==================
 
 * dev-develop
+    * FEATURE     #1921 [ContentBundle]   Added unset single internal link
     * BUGFIX      #1874 [ContentBundle]   Fixed preview selector for blocks
     * FEATURE     #1777 [ContentBundle]   Added selection content types
     * BUGFIX      #1911 [SecurityBundle]  Fixed default locale user builder
