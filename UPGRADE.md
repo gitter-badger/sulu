@@ -2,6 +2,14 @@
 
 ## dev-develop
 
+### Preview
+
+Clear the preview cache to avoid wrong cached data.
+
+```bash
+app/console cache:clear
+```
+
 ### Webspace Settings
 
 A new phpcr namespace was added. To register it run following command:

@@ -55,6 +55,7 @@ class PageBridgeHandlerTest extends \PHPUnit_Framework_TestCase
         $context->accept(
             [
                 'document' => $document->reveal(),
+                'documentClass' => get_class($document->reveal()),
                 'structure' => 'test',
             ]
         )->shouldBeCalledTimes(1);
@@ -96,6 +97,7 @@ class PageBridgeHandlerTest extends \PHPUnit_Framework_TestCase
             $visitor->reveal(),
             [
                 'document' => 'serialized document',
+                'documentClass' => PageDocument::class,
                 'structure' => 'test',
             ],
             ['name' => PageBridge::class],

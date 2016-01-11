@@ -14,7 +14,6 @@ use JMS\Serializer\Context;
 use JMS\Serializer\GraphNavigator;
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\VisitorInterface;
-use Sulu\Bundle\ContentBundle\Document\PageDocument;
 use Sulu\Bundle\DocumentManagerBundle\Bridge\DocumentInspector;
 use Sulu\Component\Content\Compat\Structure\LegacyPropertyFactory;
 use Sulu\Component\Content\Compat\Structure\PageBridge;
@@ -72,6 +71,7 @@ class PageBridgeHandler implements SubscribingHandlerInterface
         $context->accept(
             [
                 'document' => $bridge->getDocument(),
+                'documentClass' => get_class($bridge->getDocument()),
                 'structure' => $bridge->getStructure()->getName(),
             ]
         );
@@ -91,7 +91,7 @@ class PageBridgeHandler implements SubscribingHandlerInterface
         array $type,
         Context $context
     ) {
-        $document = $context->accept($data['document'], ['name' => PageDocument::class]);
+        $document = $context->accept($data['document'], ['name' => $data['documentClass']]);
 
         $structure = $this->structureFactory->getStructureMetadata('page', $data['structure']);
 
